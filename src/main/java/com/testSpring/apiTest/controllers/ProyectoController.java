@@ -26,40 +26,40 @@ public class ProyectoController {
     
     List<Proyecto> proyecto = new ArrayList<Proyecto>();
     
-    @GetMapping("/ver/proyecto")
+    @GetMapping("/api/proyecto")
     public List<Proyecto> getAll(){
         
         return proyService.verProyecto();
         
     }
     
-    @PostMapping("new/proyecto")
+    @PostMapping("/api/newProyecto")
     public void agregarProyecto(@RequestBody Proyecto pyt){
        
         proyService.crearProyecto(pyt);
     
     }
     
-    @PostMapping("/ver/proyectoPost")
+    @PostMapping("/api/proyectoPost")
     public List<Proyecto> getAllPost(){
      
         return proyService.verProyecto();
     
     }
     
-    @GetMapping("ver/proyecto/{id}")
+    @GetMapping("/api/proyecto/{id}")
     public Proyecto buscarProyecto(@PathVariable Long id){
         
         return proyService.buscarProyecto(id);
     }
     
-    @DeleteMapping("/deleteProy/{id}")
+    @DeleteMapping("/api/deleteProy/{id}")
     public void borrarProyecto (@PathVariable Long id){
         
         proyService.borrarProyecto(id);
     }
     
-    @PutMapping("/proyecto/edit/{id}")
+    @PutMapping("/api/proyecto/edit/{id}")
     public Proyecto modificarProyecto(@PathVariable Long id,
                           @RequestParam("nombre") String nuevoNombre,
                           @RequestParam("anio") int nuevoAnio,

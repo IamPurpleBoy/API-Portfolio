@@ -25,40 +25,40 @@ public class IdiomaController {
     
     List<Idioma> idioma = new ArrayList<Idioma>();
     
-     @GetMapping("/ver/idioma")
+     @GetMapping("/api/idioma")
     public List<Idioma> getAll(){
         
         return idiomaService.verIdioma();
         
     }
     
-    @PostMapping("new/idioma")
+    @PostMapping("/api/newIdioma")
     public void agregarIdioma(@RequestBody Idioma idm){
        
         idiomaService.crearIdioma(idm);
     
     }
     
-    @PostMapping("/ver/idiomaPost")
+    @PostMapping("/api/idiomaPost")
     public List<Idioma> getAllPost(){
      
         return idiomaService.verIdioma();
     
     }
     
-    @GetMapping("ver/idioma/{id}")
+    @GetMapping("/api/idioma/{id}")
     public Idioma buscarIdioma(@PathVariable Long id){
         
         return idiomaService.buscarIdioma(id);
     }
     
-    @DeleteMapping("/deleteIdioma/{id}")
+    @DeleteMapping("/api/deleteIdioma/{id}")
     public void borrarIdioma (@PathVariable Long id){
         
         idiomaService.borrarIdioma(id);
     }
     
-    @PutMapping("/idioma/edit/{id}")
+    @PutMapping("/api/idioma/edit/{id}")
     public Idioma modificarIdioma(@PathVariable Long id,
                           @RequestParam("nombre") String nuevoNombre,
                           @RequestParam("nivel") int nuevoNivel,

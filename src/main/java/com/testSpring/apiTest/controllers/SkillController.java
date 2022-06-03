@@ -24,40 +24,40 @@ public class SkillController {
     
     List<Skill> skill = new ArrayList<Skill>();
     
-     @GetMapping("/ver/skill")
+     @GetMapping("/api/skill")
     public List<Skill> getAll(){
         
         return skillService.verSkill();
         
     }
     
-    @PostMapping("/new/skill")
+    @PostMapping("/api/newSkill")
     public void agregarSkill(@RequestBody Skill skl){
        
         skillService.crearSkill(skl);
     
     }
     
-    @PostMapping("/ver/skillPost")
+    @PostMapping("/api/skillPost")
     public List<Skill> getAllPost(){
      
         return skillService.verSkill();
     
     }
     
-    @GetMapping("ver/skill/{id}")
+    @GetMapping("/api/skill/{id}")
     public Skill buscarSkill(@PathVariable Long id){
         
         return skillService.buscarSkill(id);
     }
     
-    @DeleteMapping("/deleteSkill/{id}")
+    @DeleteMapping("/api/deleteSkill/{id}")
     public void borrarSkill (@PathVariable Long id){
         
         skillService.borrarSkill(id);
     }
     
-    @PutMapping("/skill/edit/{id}")
+    @PutMapping("/api/skill/edit/{id}")
     public Skill modificarSkill(@PathVariable Long id,
                           @RequestParam("nombre") String nuevoNombre,
                           @RequestParam("nivel") int nuevoNivel,

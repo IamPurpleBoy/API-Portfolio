@@ -24,40 +24,40 @@ public class EducacionController {
     
     List <Educacion> educacion = new ArrayList <Educacion>(); 
     
-    @GetMapping("/ver/educacion")
+    @GetMapping("/api/educacion")
     public List<Educacion> getAll(){
         
         return educacionServ.verEducacion();
         
     }
     
-    @PostMapping("new/educacion")
+    @PostMapping("/api/newEducacion")
     public void agregarTrabajo(@RequestBody Educacion edu){
        
         educacionServ.crearEducacion(edu);
     
     }
     
-    @PostMapping("/ver/eduPost")
+    @PostMapping("/api/eduPost")
     public List<Educacion> getAllPost(){
      
         return educacionServ.verEducacion();
     
     }
     
-    @GetMapping("ver/educacion/{id}")
+    @GetMapping("/api/educacion/{id}")
     public Educacion buscarEducacion(@PathVariable Long id){
         
         return educacionServ.buscarEducacion(id);
     }
     
-    @DeleteMapping("/deleteEdu/{id}")
+    @DeleteMapping("/api/deleteEdu/{id}")
     public void borrarEducacion (@PathVariable Long id){
         
         educacionServ.borrarEducacion(id);
     }
     
-    @PutMapping("/educacion/edit/{id}")
+    @PutMapping("/api/educacion/edit/{id}")
     public Educacion modificarEducacion(@PathVariable Long id,
                           @RequestParam("institucion") String nuevaInstitucion,
                           @RequestParam("titulo") String nuevoTitulo,

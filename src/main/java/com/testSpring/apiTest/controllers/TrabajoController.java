@@ -23,40 +23,40 @@ public class TrabajoController {
     
     List <Trabajo> trabajos = new ArrayList <Trabajo>(); 
     
-    @GetMapping("/ver/trabajos")
+    @GetMapping("/api/trabajos")
     public List<Trabajo> getAll(){
         
         return trabajoServ.verTrabajos();
         
     }
     
-    @PostMapping("new/trabajo")
+    @PostMapping("/api/newTrabajo")
     public void agregarTrabajo(@RequestBody Trabajo job){
        
         trabajoServ.crearTrabajo(job);
     
     }
     
-    @PostMapping("/ver/trabajoPost")
+    @PostMapping("/api/trabajoPost")
     public List<Trabajo> getAllPost(){
      
         return trabajoServ.verTrabajos();
     
     }
     
-    @GetMapping("ver/trabajos/{id}")
+    @GetMapping("/api/trabajos/{id}")
     public Trabajo buscarTrabajo(@PathVariable Long id){
         
         return trabajoServ.buscarTrabajo(id);
     }
     
-    @DeleteMapping("/deleteJob/{id}")
+    @DeleteMapping("/api/deleteJob/{id}")
     public void borrarTrabajo (@PathVariable Long id){
         
         trabajoServ.borrarTrabajo(id);
     }
     
-    @PutMapping("/trabajos/edit/{id}")
+    @PutMapping("/api/trabajos/edit/{id}")
     public Trabajo modificarTrabajo(@PathVariable Long id,
                           @RequestParam("empresa") String nuevaEmpresa,
                           @RequestParam("cargo") String nuevoCargo,

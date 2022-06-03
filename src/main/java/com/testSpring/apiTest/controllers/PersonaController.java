@@ -24,20 +24,20 @@ public class PersonaController {
     
     List<Persona> personas = new ArrayList<Persona>();
 
-    @GetMapping("/ver/personas")
+    @GetMapping("/api/personas")
     public List<Persona> getAll() {
 
         return persoServ.verPersonas();
     }
     
-    @PostMapping("/new/persona")
+    @PostMapping("/api/newPersona")
     public void agregarPersona(@RequestBody Persona per) {
 
         persoServ.crearPersona(per);
         
     }
     
-    @PostMapping("/ver/personaPost")
+    @PostMapping("/api/personaPost")
     public List <Persona> getAllPost() {
 
         return persoServ.verPersonas();
@@ -46,18 +46,18 @@ public class PersonaController {
     
     
     
-    @GetMapping("/ver/personas/{id}")
+    @GetMapping("/api/personas/{id}")
     public Persona buscarPersona(@PathVariable Long id) {
         return persoServ.buscarPersona(id);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/api/delete/{id}")
     public void borrarPersona(@PathVariable Long id) {
 
         persoServ.borrarPersona(id);
     }
 
-    @PutMapping("/personas/edit/{id}")
+    @PutMapping("/api/personas/edit/{id}")
     public Persona modificarPersona(@PathVariable Long id,
                           @RequestParam("nombre") String nuevoNombre,
                           @RequestParam("apellido") String nuevoApellido,
