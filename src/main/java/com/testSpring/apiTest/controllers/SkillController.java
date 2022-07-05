@@ -60,7 +60,7 @@ public class SkillController {
     @PutMapping("/api/skill/edit/{id}")
     public Skill modificarSkill(@PathVariable Long id,
                           @RequestParam("nombre") String nuevoNombre,
-                          @RequestParam("nivel") int nuevoNivel,
+                          @RequestParam("nivel") String nuevoNivel,
                           @RequestParam("imagen") String nuevaImagen
                           
                           

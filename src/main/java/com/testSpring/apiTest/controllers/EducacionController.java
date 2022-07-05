@@ -62,7 +62,7 @@ public class EducacionController {
                           @RequestParam("institucion") String nuevaInstitucion,
                           @RequestParam("titulo") String nuevoTitulo,
                           @RequestParam("estado") String nuevoEstado,
-                          @RequestParam ("anoInicio")int nuevoAnoInicio,
+                          //@RequestParam ("anoInicio")int nuevoAnoInicio,
                           @RequestParam("anoFin") int nuevoAnoFin,
                           @RequestParam("modalidad") String nuevaModalidad,
                           @RequestParam("descripcion") String nuevaDescripcion
@@ -73,7 +73,7 @@ public class EducacionController {
         educacion.setInstitucion(nuevaInstitucion);
         educacion.setTitulo(nuevoTitulo);
         educacion.setEstado(nuevoEstado);
-        educacion.setAnoInicio(nuevoAnoInicio);
+        //educacion.setAnoInicio(nuevoAnoInicio);
         educacion.setAnoFin(nuevoAnoFin);
         educacion.setModalidad(nuevaModalidad);
         educacion.setDescripcion(nuevaDescripcion);

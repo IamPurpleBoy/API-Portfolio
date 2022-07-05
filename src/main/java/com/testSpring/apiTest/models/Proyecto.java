@@ -15,16 +15,16 @@ public class Proyecto {
     
     private String nombre;
     private int anio;
-    private String descipcion;
+    private String descripcion;
     private String imagen;
 
     public Proyecto() {
     }
 
-    public Proyecto(String nombre, int anio, String descipcion, String imagen) {
+    public Proyecto(String nombre, int anio, String descripcion, String imagen) {
         this.nombre = nombre;
         this.anio = anio;
-        this.descipcion = descipcion;
+        this.descripcion = descripcion;
         this.imagen = imagen;
     }
 
@@ -52,12 +52,12 @@ public class Proyecto {
         this.anio = anio;
     }
 
-    public String getDescipcion() {
-        return descipcion;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setDescipcion(String descipcion) {
-        this.descipcion = descipcion;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getImagen() {

@@ -72,7 +72,7 @@ public class ProyectoController {
         
         proyecto.setNombre(nuevoNombre);
         proyecto.setAnio(nuevoAnio);
-        proyecto.setAnio(nuevoAnio);
+        proyecto.setDescripcion(nuevaDescripcion);
         proyecto.setImagen(nuevaImagen);
         
         proyService.modificarProyecto(proyecto);

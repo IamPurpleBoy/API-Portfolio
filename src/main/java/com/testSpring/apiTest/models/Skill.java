@@ -13,14 +13,14 @@ public class Skill {
     private Long id;
     
     private String nombre;
-    private int nivel;
+    private String nivel;
     private String imagen;
     
     
     public Skill(){
     }
     
-    public Skill(String nombre, int nivel, String imagen){
+    public Skill(String nombre, String nivel, String imagen){
         
         this.nombre = nombre;
         this.nivel = nivel;
@@ -44,11 +44,11 @@ public class Skill {
         this.nombre = nombre;
     }
 
-    public int getNivel() {
+    public String getNivel() {
         return nivel;
     }
 
-    public void setNivel(int nivel) {
+    public void setNivel(String nivel) {
         this.nivel = nivel;
     }
 

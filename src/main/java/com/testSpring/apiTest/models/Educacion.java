@@ -15,7 +15,7 @@ public class Educacion {
     private String institucion;
     private String titulo;
     private String estado;
-    private int anoInicio;
+    //private int anoInicio;
     private int anoFin;
     private String modalidad;
     private String descripcion;
@@ -25,13 +25,13 @@ public class Educacion {
     }
     
     public Educacion(String institucion, String titulo, String estado,
-                     int anoInicio, int anoFin, String modalidad,
+                     /*int anoInicio,*/ int anoFin, String modalidad,
                      String descripcion){
     
         this.institucion = institucion;
         this.titulo = titulo;
         this.estado = estado;
-        this.anoInicio = anoInicio;
+        //this.anoInicio = anoInicio;
         this.anoFin = anoFin;
         this.modalidad = modalidad;
         this.descripcion = descripcion;
@@ -71,13 +71,13 @@ public class Educacion {
         this.estado = estado;
     }
 
-    public int getAnoInicio() {
+    /*public int getAnoInicio() {
         return anoInicio;
     }
 
     public void setAnoInicio(int anoInicio) {
         this.anoInicio = anoInicio;
-    }
+    }*/
 
     public int getAnoFin() {
         return anoFin;
