@@ -13,6 +13,7 @@ public class Trabajo {
     private Long id;
 
     private String empresa;
+    private String logo;
     private String cargo;
     private String telefono;
     private int anoInicio;
@@ -22,14 +23,23 @@ public class Trabajo {
     public Trabajo() {
     }
 
-    public Trabajo(String empresa, String cargo, String telefono, int anoInicio, int anoFin, String descripcion) {
+    public Trabajo(String empresa, String logo, String cargo, String telefono, int anoInicio, int anoFin, String descripcion) {
         this.empresa = empresa;
+        this.logo = logo;
         this.cargo = cargo;
         this.telefono = telefono;
         this.anoInicio = anoInicio;
         this.anoFin = anoFin;
         this.descripcion = descripcion;
 
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public Long getId() {

@@ -59,6 +59,7 @@ public class TrabajoController {
     @PutMapping("/api/trabajos/edit/{id}")
     public Trabajo modificarTrabajo(@PathVariable Long id,
                           @RequestParam("empresa") String nuevaEmpresa,
+                          @RequestParam("logo") String nuevoLogo,
                           @RequestParam("cargo") String nuevoCargo,
                           @RequestParam("telefono") String nuevoTelefono,
                           @RequestParam ("anoInicio")int nuevoAnoInicio,
@@ -69,6 +70,7 @@ public class TrabajoController {
         Trabajo trabajo = trabajoServ.buscarTrabajo(id);
         
         trabajo.setEmpresa(nuevaEmpresa);
+        trabajo.setLogo(nuevoLogo);
         trabajo.setCargo(nuevoCargo);
         trabajo.setTelefono(nuevoTelefono);
         trabajo.setAnoInicio(nuevoAnoInicio);

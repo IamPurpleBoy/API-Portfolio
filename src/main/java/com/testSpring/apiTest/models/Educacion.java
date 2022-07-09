@@ -13,9 +13,9 @@ public class Educacion {
     private Long id;
     
     private String institucion;
+    private String logo;
     private String titulo;
     private String estado;
-    //private int anoInicio;
     private int anoFin;
     private String modalidad;
     private String descripcion;
@@ -24,19 +24,27 @@ public class Educacion {
     public Educacion(){
     }
     
-    public Educacion(String institucion, String titulo, String estado,
-                     /*int anoInicio,*/ int anoFin, String modalidad,
-                     String descripcion){
+    public Educacion(String institucion, String logo, String titulo, String estado,
+                    int anoFin, String modalidad,
+                    String descripcion){
     
         this.institucion = institucion;
+        this.logo = logo;
         this.titulo = titulo;
         this.estado = estado;
-        //this.anoInicio = anoInicio;
         this.anoFin = anoFin;
         this.modalidad = modalidad;
         this.descripcion = descripcion;
     
     
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public void setLogo(String logo) {
+        this.logo = logo;
     }
 
     public Long getIdEdu() {
@@ -70,14 +78,6 @@ public class Educacion {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    /*public int getAnoInicio() {
-        return anoInicio;
-    }
-
-    public void setAnoInicio(int anoInicio) {
-        this.anoInicio = anoInicio;
-    }*/
 
     public int getAnoFin() {
         return anoFin;

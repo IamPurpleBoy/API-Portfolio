@@ -63,7 +63,8 @@ public class PersonaController {
                           @RequestParam("apellido") String nuevoApellido,
                           @RequestParam("telefono") String nuevoTelefono,
                           @RequestParam ("email") String nuevoEmail,
-                          @RequestParam("password") String nuevoPassword
+                          @RequestParam ("aboutMe") String nuevoAboutMe
+                         
                           ){
         Persona persona = persoServ.buscarPersona(id);
         
@@ -71,7 +72,8 @@ public class PersonaController {
         persona.setApellido(nuevoApellido);
         persona.setTelefono(nuevoTelefono);
         persona.setEmail(nuevoEmail);
-        persona.setPassword(nuevoPassword);
+        persona.setAboutMe(nuevoAboutMe);
+        
         
         persoServ.modificarPersona(persona);
         return persona;

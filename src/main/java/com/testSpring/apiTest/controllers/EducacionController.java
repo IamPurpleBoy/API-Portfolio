@@ -59,21 +59,21 @@ public class EducacionController {
     
     @PutMapping("/api/educacion/edit/{id}")
     public Educacion modificarEducacion(@PathVariable Long id,
-                          @RequestParam("institucion") String nuevaInstitucion,
-                          @RequestParam("titulo") String nuevoTitulo,
-                          @RequestParam("estado") String nuevoEstado,
-                          //@RequestParam ("anoInicio")int nuevoAnoInicio,
-                          @RequestParam("anoFin") int nuevoAnoFin,
-                          @RequestParam("modalidad") String nuevaModalidad,
-                          @RequestParam("descripcion") String nuevaDescripcion
+                         @RequestParam("institucion") String nuevaInstitucion,
+                         @RequestParam("logo") String nuevoLogo,
+                         @RequestParam("titulo") String nuevoTitulo,
+                         @RequestParam("estado") String nuevoEstado,
+                         @RequestParam("anoFin") int nuevoAnoFin,
+                         @RequestParam("modalidad") String nuevaModalidad,
+                         @RequestParam("descripcion") String nuevaDescripcion
                           
                           ){
         Educacion educacion = educacionServ.buscarEducacion(id);
         
         educacion.setInstitucion(nuevaInstitucion);
+        educacion.setLogo(nuevoLogo);
         educacion.setTitulo(nuevoTitulo);
         educacion.setEstado(nuevoEstado);
-        //educacion.setAnoInicio(nuevoAnoInicio);
         educacion.setAnoFin(nuevoAnoFin);
         educacion.setModalidad(nuevaModalidad);
         educacion.setDescripcion(nuevaDescripcion);
