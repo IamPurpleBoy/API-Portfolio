@@ -5,28 +5,27 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
 @Entity
 public class Idioma {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     private String nombre;
     private int nivel;
     private String imagen;
-    
-    public Idioma(){
-        
+
+    public Idioma() {
+
     }
-    
-    public Idioma(String nombre, int nivel, String imagen){
-    
+
+    public Idioma(String nombre, int nivel, String imagen) {
+
         this.nombre = nombre;
         this.nivel = nivel;
         this.imagen = imagen;
-        
+
     }
 
     public Long getId() {
@@ -60,10 +59,10 @@ public class Idioma {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-    
+
     @Override
     public String toString() {
-        return "idioma{" + "nombre=" + nombre+ ", nivel=" + nivel + '}';
+        return "idioma{" + "nombre=" + nombre + ", nivel=" + nivel + '}';
     }
-    
+
 }

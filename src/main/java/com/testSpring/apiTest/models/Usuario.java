@@ -1,4 +1,3 @@
-
 package com.testSpring.apiTest.models;
 
 import java.util.Collection;
@@ -12,21 +11,22 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-@Table(name="usuario")
-public class Usuario implements UserDetails{
+@Table(name = "usuario")
+public class Usuario implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false, unique=true, length=50)
+    @Column(nullable = false, unique = true, length = 50)
     private String email;
-     @Column(nullable = false)
+    @Column(nullable = false)
     private String password;
 
-     public Usuario(){}
-     
+    public Usuario() {
+    }
+
     public Usuario(String email, String password) {
-        
+
         this.email = email;
         this.password = password;
     }
@@ -50,10 +50,10 @@ public class Usuario implements UserDetails{
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-       return null;
+        return null;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class Usuario implements UserDetails{
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;    
+        return true;
     }
 
     @Override
@@ -85,5 +85,5 @@ public class Usuario implements UserDetails{
     public boolean isEnabled() {
         return true;
     }
-    
+
 }

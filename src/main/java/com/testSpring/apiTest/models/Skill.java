@@ -7,25 +7,24 @@ import javax.persistence.Id;
 
 @Entity
 public class Skill {
-    
-     @Id
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     private String nombre;
     private String nivel;
     private String imagen;
-    
-    
-    public Skill(){
+
+    public Skill() {
     }
-    
-    public Skill(String nombre, String nivel, String imagen){
-        
+
+    public Skill(String nombre, String nivel, String imagen) {
+
         this.nombre = nombre;
         this.nivel = nivel;
         this.imagen = imagen;
-       
+
     }
 
     public Long getId() {
@@ -59,10 +58,9 @@ public class Skill {
     public void setImagen(String imagen) {
         this.imagen = imagen;
     }
-    
+
     @Override
     public String toString() {
-        return "skill{" + "nombre=" + nombre+ ", nivel=" + nivel + '}';
+        return "skill{" + "nombre=" + nombre + ", nivel=" + nivel + '}';
     }
-    }
-
+}

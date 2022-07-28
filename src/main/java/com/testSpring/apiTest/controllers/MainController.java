@@ -1,33 +1,33 @@
 package com.testSpring.apiTest.controllers;
 
-import com.testSpring.apiTest.models.Persona;
+import com.testSpring.apiTest.models.Usuario;
+import com.testSpring.apiTest.service.IUsuarioService;
+import java.util.ArrayList;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class MainController {
 
-    @GetMapping("")
-    public String inicio() {
-        return "Hola Spring!";
-    }
-    @GetMapping ("/saludar")
-    public String saludar(@RequestParam String nombre, @RequestParam String apellido){
-        
-        return "Hola " + nombre + " " + apellido + "!!!" ;
+    @Autowired
+    private IUsuarioService usuarioRepo;
+
+    List<Usuario> usuarios = new ArrayList<Usuario>();
+
+    @GetMapping("/api/usuario")
+    public List<Usuario> getAll() {
+
+        return usuarioRepo.verUsuario();
     }
 
-    @GetMapping("/saludar/{nombre}/{apellido}")
-    public String saludarPath(@PathVariable String nombre, @PathVariable String apellido) {
-        return "Hola! " + nombre + " " + apellido ;
-    }
-    
-    @PostMapping("/saludar")
-    public String saludarPost(@RequestBody Persona  body){
-            return "Hola " + body.getNombre() +" "+ body.getApellido();
+    @GetMapping("/api/usuario/{id}")
+    public ResponseEntity<Usuario> buscarUsuario(@PathVariable("id") Integer id) {
+        Usuario usuario = usuarioRepo.buscarUsuario(id);
+        return new ResponseEntity<>(usuario, HttpStatus.OK);
     }
 }

@@ -1,16 +1,15 @@
-
 package com.testSpring.apiTest.security;
 
 import javax.validation.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 public class AuthRequest {
-    
+
     @Email
-    @Length(min=5, max=50)
+    @Length(min = 5, max = 50)
     private String email;
-    
-    @Length(min=5, max=70)
+
+    @Length(min = 5, max = 70)
     private String password;
 
     public String getEmail() {
@@ -28,5 +27,5 @@ public class AuthRequest {
     public void setPassword(String password) {
         this.password = password;
     }
-    
+
 }

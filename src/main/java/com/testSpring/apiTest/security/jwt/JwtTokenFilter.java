@@ -1,6 +1,4 @@
-
 package com.testSpring.apiTest.security.jwt;
-
 
 import com.testSpring.apiTest.models.Usuario;
 import java.io.IOException;
@@ -16,86 +14,81 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
-        
+
 @Component
-public class JwtTokenFilter extends OncePerRequestFilter{
-    
+public class JwtTokenFilter extends OncePerRequestFilter {
+
     @Autowired
     private JwtTokenUtil jwtUtil;
-    
+
     @Override
     protected void doFilterInternal(HttpServletRequest request,
-                                    HttpServletResponse response,
-                                    FilterChain filterChain)
-            throws ServletException, IOException{
-    if(!hasAuthorizationBearer(request)){
-        
+            HttpServletResponse response,
+            FilterChain filterChain)
+            throws ServletException, IOException {
+        if (!hasAuthorizationBearer(request)) {
+
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        String token = getAccessToken(request);
+
+        if (!jwtUtil.validateAccesToken(token)) {
+
+            filterChain.doFilter(request, response);
+            return;
+        }
+
+        setAuthenticationContext(token, request);
         filterChain.doFilter(request, response);
-        return;
+
     }
-     
-    String token = getAccessToken(request);
-    
-    if(!jwtUtil.validateAccesToken(token)){
-    
-        filterChain.doFilter(request, response);
-        return;
+
+    private boolean hasAuthorizationBearer(HttpServletRequest request) {
+
+        String header = request.getHeader("Authorization");
+
+        if (ObjectUtils.isEmpty(header) || !header.startsWith("bearer")) {
+
+            return false;
+        }
+
+        return true;
+
     }
-    
-    setAuthenticationContext(token,request);
-    filterChain.doFilter(request, response);
-    
-     
-    }
-    
-    private boolean hasAuthorizationBearer(HttpServletRequest request){
-    
-    String header = request.getHeader("Authorization");
-    
-    if(ObjectUtils.isEmpty(header) || !header.startsWith("bearer")){
-    
-        return false;
-    }
-    
-    return true;
-    
-    }
-    
-    private String getAccessToken(HttpServletRequest request){
-    
+
+    private String getAccessToken(HttpServletRequest request) {
+
         String header = request.getHeader("Authorization");
         String token = header.split(" ")[1].trim();
         return token;
     }
-    
-    private String setAuthenticationContext(String token, HttpServletRequest request){
-    
+
+    private String setAuthenticationContext(String token, HttpServletRequest request) {
+
         UserDetails userDetails = getUserDetails(token);
-        
-        UsernamePasswordAuthenticationToken
-                authentication = new UsernamePasswordAuthenticationToken(userDetails, null, null);
-        
+
+        UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetails, null, null);
+
         authentication.setDetails(
-       
                 new WebAuthenticationDetailsSource().buildDetails(request));
-        
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        
+
         return null;
-        
-        
+
     }
-    
-    private UserDetails getUserDetails(String token){
-    
+
+    private UserDetails getUserDetails(String token) {
+
         Usuario userDetails = new Usuario();
         String[] jwtSubject = jwtUtil.getSubject(token).split(",");
-        
+
         userDetails.setId(Integer.parseInt(jwtSubject[0]));
         userDetails.setEmail(jwtSubject[1]);
-        
+
         return userDetails;
     }
-    
-   
+
 }

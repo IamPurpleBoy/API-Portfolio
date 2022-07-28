@@ -1,4 +1,3 @@
-
 package com.testSpring.apiTest.service;
 
 import com.testSpring.apiTest.models.Proyecto;
@@ -8,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProyectoService implements IProyectoService{
+public class ProyectoService implements IProyectoService {
 
     @Autowired
     public ProyectoRepository proyectoRepo;
-    
+
     @Override
     public List<Proyecto> verProyecto() {
         return proyectoRepo.findAll();
@@ -37,5 +36,5 @@ public class ProyectoService implements IProyectoService{
     public Proyecto modificarProyecto(Proyecto pyt) {
         return proyectoRepo.save(pyt);
     }
-    
+
 }

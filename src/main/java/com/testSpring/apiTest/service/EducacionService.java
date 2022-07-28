@@ -1,4 +1,3 @@
-
 package com.testSpring.apiTest.service;
 
 import com.testSpring.apiTest.models.Educacion;
@@ -10,8 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class EducacionService implements IEducacionService {
 
-@Autowired
-public EducacionRepository educacionRepo;
+    @Autowired
+    public EducacionRepository educacionRepo;
+
     @Override
     public List<Educacion> verEducacion() {
         return educacionRepo.findAll();
@@ -29,12 +29,12 @@ public EducacionRepository educacionRepo;
 
     @Override
     public Educacion buscarEducacion(Long id) {
-        return  educacionRepo.findById(id).orElse(null);
+        return educacionRepo.findById(id).orElse(null);
     }
 
     @Override
     public Educacion modificarEducacion(Educacion edu) {
         return educacionRepo.save(edu);
     }
-    
+
 }

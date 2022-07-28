@@ -1,4 +1,3 @@
-
 package com.testSpring.apiTest.security;
 
 import com.testSpring.apiTest.models.Usuario;
@@ -17,37 +16,32 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class AuthApi {
-    
+
     @Autowired
     AuthenticationManager authManager;
-    
+
     @Autowired
     JwtTokenUtil jwtTokenUtil;
-    
+
     @PostMapping("/api/login")
-        public ResponseEntity<?> login(@RequestBody @Valid AuthRequest request){
-    
-        try{
-        Authentication authentication = authManager.authenticate(
-        
-                new UsernamePasswordAuthenticationToken(
-                        request.getEmail(), request.getPassword())
-        );
-        
-        Usuario usuario = (Usuario) authentication.getPrincipal();
-        String accessToken = jwtTokenUtil.generateAccessToken(usuario);
-        AuthResponse response = new AuthResponse(usuario.getEmail(), accessToken);
-        
-        return ResponseEntity.ok().body(response);
-       
-        
-        
-        }catch(BadCredentialsException ex){
+    public ResponseEntity<?> login(@RequestBody @Valid AuthRequest request) {
+
+        try {
+            Authentication authentication = authManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            request.getEmail(), request.getPassword())
+            );
+
+            Usuario usuario = (Usuario) authentication.getPrincipal();
+            String accessToken = jwtTokenUtil.generateAccessToken(usuario);
+            AuthResponse response = new AuthResponse(usuario.getEmail(), accessToken);
+
+            return ResponseEntity.ok().body(response);
+
+        } catch (BadCredentialsException ex) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
-    
-    
+
     }
-    
-    
+
 }

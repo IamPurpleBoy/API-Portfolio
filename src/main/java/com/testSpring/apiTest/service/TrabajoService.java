@@ -1,4 +1,3 @@
-
 package com.testSpring.apiTest.service;
 
 import com.testSpring.apiTest.models.Trabajo;
@@ -9,31 +8,31 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TrabajoService implements ITrabajoService {
-   
-@Autowired
-public TrabajoRepository trabajoRepo;
+
+    @Autowired
+    public TrabajoRepository trabajoRepo;
+
     @Override
     public List<Trabajo> verTrabajos() {
-      return  trabajoRepo.findAll();
+        return trabajoRepo.findAll();
     }
 
     @Override
     public void crearTrabajo(Trabajo job) {
-      trabajoRepo.save(job) ;
+        trabajoRepo.save(job);
     }
 
     @Override
     public void borrarTrabajo(Long id) {
-       trabajoRepo.deleteById(id);
+        trabajoRepo.deleteById(id);
     }
 
     @Override
     public Trabajo buscarTrabajo(Long id) {
-      return  trabajoRepo.findById(id).orElse(null);
+        return trabajoRepo.findById(id).orElse(null);
     }
 
-   public Trabajo modificarTrabajo(Trabajo job){
-       return trabajoRepo.save(job);
-   }
+    public Trabajo modificarTrabajo(Trabajo job) {
+        return trabajoRepo.save(job);
+    }
 }
-

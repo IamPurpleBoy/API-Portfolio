@@ -7,11 +7,11 @@ import javax.persistence.Id;
 
 @Entity
 public class Educacion {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     private String institucion;
     private String logo;
     private String titulo;
@@ -19,15 +19,14 @@ public class Educacion {
     private int anoFin;
     private String modalidad;
     private String descripcion;
-    
-    
-    public Educacion(){
+
+    public Educacion() {
     }
-    
+
     public Educacion(String institucion, String logo, String titulo, String estado,
-                    int anoFin, String modalidad,
-                    String descripcion){
-    
+            int anoFin, String modalidad,
+            String descripcion) {
+
         this.institucion = institucion;
         this.logo = logo;
         this.titulo = titulo;
@@ -35,8 +34,7 @@ public class Educacion {
         this.anoFin = anoFin;
         this.modalidad = modalidad;
         this.descripcion = descripcion;
-    
-    
+
     }
 
     public String getLogo() {
@@ -102,9 +100,10 @@ public class Educacion {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
     @Override
     public String toString() {
         return "educacion{" + "isntitucion=" + institucion + ", titulo=" + titulo + '}';
     }
-    
+
 }
